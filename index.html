@@ -1,0 +1,200 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Athena's Christening</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background: #fff0f3;
+  color: #805568;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.cover {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+  background: linear-gradient(135deg,#fff8f8,#f9dce5);
+}
+
+.card {
+  width: 100%;
+  max-width: 440px;
+  padding: 30px 20px;
+  background: #fffdfb;
+  border: 3px double #d9a7b8;
+  border-radius: 180px 180px 25px 25px;
+  box-shadow: 0 8px 25px #b77b9033;
+  animation: appear 2s ease;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.bow { font-size: 55px; }
+
+h1 {
+  color: #c47b98;
+  font-size: 34px;
+  margin: 12px 0;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: normal;
+  letter-spacing: 3px;
+}
+
+.photo {
+  width: 190px;
+  height: 230px;
+  object-fit: cover;
+  border: 7px solid white;
+  outline: 2px solid #d9a7b8;
+  border-radius: 100px 100px 20px 20px;
+  margin: 20px auto;
+}
+
+p { line-height: 1.7; }
+
+.date {
+  color: #b66d89;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+button {
+  background: #c47b98;
+  color: white;
+  border: none;
+  padding: 13px 25px;
+  border-radius: 30px;
+  font-size: 15px;
+  margin: 12px;
+}
+
+.details {
+  display: none;
+  padding: 15px;
+  animation: appear 1s ease;
+}
+
+.names {
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.petal {
+  position: fixed;
+  top: -20px;
+  color: #d58ca6;
+  animation: fall linear infinite;
+  pointer-events: none;
+  z-index: 5;
+}
+
+@keyframes fall {
+  to { transform: translateY(110vh) rotate(360deg); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="cover">
+  <div class="card">
+    <div class="bow">🎀</div>
+    <h2>YOU ARE INVITED TO THE</h2>
+    <h1>Christening</h1>
+    <p>of our precious little angel</p>
+
+    <h1>Athena Agni<br>C. Reyes</h1>
+
+    <!-- Add Athena's photo file here -->
+    <img class="photo" src="athena.jpg" alt="Baby Athena">
+
+    <p>With grateful hearts, we invite you<br>
+    to celebrate this special day with us.</p>
+
+    <div class="date">November 28, 2026</div>
+
+    <p>
+      <b>CHURCH</b><br>
+      Our Lady of the Most Holy Rosary Parish<br>
+      Ubanon-Boao, Catbalogan City
+    </p>
+
+    <p><b>RECEPTION</b><br>
+    Reyes Residence</p>
+
+    <button onclick="showDetails()">View Godparents ♡</button>
+
+    <div class="details" id="godparents">
+      <h2>GODPARENTS</h2>
+
+      <h3>♡ Ninang ♡</h3>
+      <div class="names">
+        Danielle Reyes<br>
+        Pearl Reyes Batulan<br>
+        Sue Ann Estremera<br>
+        Lalaine Estremera-Ajero<br>
+        Christine Joy Mendiola<br>
+        Aldrette Montejo<br>
+        Abegail Verlarde<br>
+        Brenda Abringw<br>
+        Kimberly Franco<br>
+        Joan Sanchez<br>
+        Shylyn Tanlatin<br>
+        Ledilyn Heart Labian
+      </div>
+
+      <h3>♡ Ninong ♡</h3>
+      <div class="names">
+        Reden Cabreza<br>
+        Peter Anthony Dacaynos<br>
+        Reynaldo Grata<br>
+        Nikki Cabardo<br>
+        Noel Pagdonsolan
+      </div>
+    </div>
+
+    <p style="font-style:italic;margin-top:25px;">
+      A little blessing, a lifetime of love. ♡
+    </p>
+    <div class="bow">🌸 ✨ 🌸</div>
+  </div>
+</div>
+
+<script>
+function showDetails() {
+  const details = document.getElementById("godparents");
+  details.style.display =
+    details.style.display === "block" ? "none" : "block";
+}
+
+for (let i = 0; i < 15; i++) {
+  let petal = document.createElement("div");
+  petal.className = "petal";
+  petal.innerHTML = "❀";
+  petal.style.left = Math.random() * 100 + "vw";
+  petal.style.animationDuration = (5 + Math.random() * 8) + "s";
+  petal.style.animationDelay = Math.random() * 5 + "s";
+  document.body.appendChild(petal);
+}
+</script>
+
+</body>
+</html>
